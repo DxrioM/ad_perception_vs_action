@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="__HTML_LANG__">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__PAGE_TITLE__</title>
+<meta property="og:title" content="__PAGE_TITLE__">
+<meta property="og:description" content="__OG_DESC__">
+<meta property="og:type" content="website">
+<meta property="og:url" content="__CANONICAL_URL__">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="__OG_DESC__">
+<link rel="canonical" href="__CANONICAL_URL__">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230F1115%22/><circle cx=%2235%22 cy=%2250%22 r=%2222%22 fill=%22%23FF7A59%22 opacity=%220.85%22/><circle cx=%2265%22 cy=%2250%22 r=%2222%22 fill=%22%233FC9E0%22 opacity=%220.85%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script>__CHARTJS_LIB__</script>
+<style>
+:root{
+  --bg:#0F1115; --card:#171A20; --card2:#1D212A; --border:#262B34;
+  --text:#F3F4F6; --text2:#98A0AC; --text3:#656D79;
+  --harrisx:#FF7A59; --edo:#3FC9E0; --gold:#E8B84F; --green:#4CAF6D; --red:#E0524A;
+  --radius:16px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg); color:var(--text); font-family:'Manrope',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;}
+.container{max-width:1160px; margin:0 auto; padding:0 24px;}
+a{color:inherit;}
+h1,h2,h3{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-0.01em;}
+.mono{font-family:'JetBrains Mono',monospace;}
+
+nav{position:sticky; top:0; z-index:100; background:rgba(15,17,21,0.9); backdrop-filter:blur(12px); border-bottom:1px solid var(--border);}
+nav .container{display:flex; align-items:center; justify-content:space-between; height:60px;}
+.logo{display:flex; align-items:center; gap:8px; font-family:'Sora'; font-weight:700; font-size:16px;}
+.logo .dots{display:flex; gap:3px;}
+.logo .dot{width:9px; height:9px; border-radius:50%;}
+.navlinks{list-style:none; display:flex; align-items:center; gap:22px;}
+nav a.navlink{font-size:12.5px; color:var(--text2); transition:color .15s;}
+nav a.navlink:hover{color:var(--text);}
+@media(max-width:820px){.navlinks li:not(.lang-item){display:none;}}
+.lang-switch{display:flex; gap:6px;}
+.lang-switch a{font-size:11px; font-weight:600; padding:4px 9px; border:1px solid var(--border); border-radius:20px; color:var(--text2);}
+.lang-switch a.active{color:var(--bg); background:var(--gold); border-color:var(--gold);}
+
+.hero{padding:60px 0 20px;}
+.eyebrow{font-family:'JetBrains Mono'; font-size:12px; font-weight:600; letter-spacing:0.1em; color:var(--gold); margin-bottom:14px; text-transform:uppercase;}
+.hero h1{font-size:clamp(34px,5.6vw,58px); line-height:1.03; margin-bottom:18px;}
+.hero h1 .hx{color:var(--harrisx);} .hero h1 .ed{color:var(--edo);}
+.hero p{font-size:17px; color:var(--text2); max-width:640px; margin-bottom:8px;}
+.hero .snapshot{font-family:'JetBrains Mono'; font-size:11.5px; color:var(--text3); margin-top:14px;}
+
+.legend-dual{display:flex; gap:22px; margin-top:26px; flex-wrap:wrap;}
+.legend-dual .item{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text2);}
+.legend-dual .sw{width:14px; height:14px; border-radius:4px;}
+
+.kpi-row{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px;}
+@media(max-width:760px){.kpi-row{grid-template-columns:1fr 1fr;}}
+.kpi{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px;}
+.kpi .val{font-family:'Sora'; font-size:28px; font-weight:800;}
+.kpi .lbl{font-size:11.5px; color:var(--text2); margin-top:4px;}
+
+section{padding:70px 0;}
+section.alt{background:var(--card2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+.section-head{max-width:660px; margin-bottom:34px;}
+.section-head .eyebrow{margin-bottom:8px;}
+.section-head h2{font-size:clamp(24px,3.2vw,34px); margin-bottom:10px;}
+.section-head p{color:var(--text2); font-size:15px;}
+
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.grid-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px;}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+.card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; min-width:0;}
+.card h3{font-family:'Manrope'; font-weight:700; font-size:15.5px; margin-bottom:2px;}
+.card .sub{font-size:12px; color:var(--text2); margin-bottom:16px;}
+.card canvas{max-height:280px; max-width:100%;}
+.chart-error{font-size:12px; color:var(--text3); padding:30px 0; text-align:center;}
+
+/* HERO RANKING (barra grande, signature) */
+.ranking-wrap{margin-top:36px; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;}
+
+/* DUAL COMPARISON (signature secundario) */
+.dual-card{background:var(--card2); border:1px solid var(--border); border-radius:var(--radius); padding:26px;}
+.dual-row{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:18px;}
+@media(max-width:700px){.dual-row{grid-template-columns:1fr;}}
+.dual-item{background:var(--card); border-radius:12px; padding:16px 18px;}
+.dual-item .brand{font-weight:700; font-size:15px; margin-bottom:8px;}
+.dual-item .metric-row{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+.dual-item .metric-row .lbl{font-size:11.5px; color:var(--text2);}
+.dual-item .metric-row .v{font-family:'JetBrains Mono'; font-weight:700; font-size:17px;}
+.dual-item .bar-track{height:6px; background:var(--bg); border-radius:3px; overflow:hidden; margin-bottom:12px;}
+.dual-item .bar-fill{height:100%; border-radius:3px;}
+
+/* CALLOUT (hallazgo destacado) */
+.callout{background:linear-gradient(135deg, rgba(255,122,89,0.12), rgba(63,201,224,0.12)); border:1px solid var(--border); border-radius:var(--radius); padding:28px;}
+.callout .big{font-family:'Sora'; font-size:clamp(28px,4vw,42px); font-weight:800; margin:10px 0;}
+.callout .big .hx{color:var(--harrisx);} .callout .big .ed{color:var(--edo);}
+
+.stack-badges{display:flex; flex-wrap:wrap; gap:10px;}
+.badge{padding:8px 16px; background:var(--card); border:1px solid var(--border); border-radius:20px; font-size:13px; color:var(--text2);}
+
+footer{padding:48px 0; text-align:center; border-top:1px solid var(--border);}
+footer p{font-size:12px; color:var(--text3); max-width:640px; margin:0 auto; line-height:1.6;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo"><span class="dots"><span class="dot" style="background:var(--harrisx)"></span><span class="dot" style="background:var(--edo)"></span></span> <span data-i18n="brand"></span></div>
+    <ul class="navlinks">
+      <li><a class="navlink" href="#ranking" data-i18n="nav_ranking"></a></li>
+      <li><a class="navlink" href="#dual" data-i18n="nav_dual"></a></li>
+      <li><a class="navlink" href="#ia" data-i18n="nav_ia"></a></li>
+      <li><a class="navlink" href="#nlp" data-i18n="nav_nlp"></a></li>
+      <li class="lang-item">
+        <div class="lang-switch">
+          <a href="__LINK_ES__" class="__ES_ACTIVE__">ES</a>
+          <a href="__LINK_EN__" class="__EN_ACTIVE__">EN</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow" data-i18n="eyebrow"></div>
+    <h1 data-i18n-html="hero_title"></h1>
+    <p data-i18n="hero_sub"></p>
+    <div class="snapshot" data-i18n="hero_snapshot"></div>
+
+    <div class="legend-dual">
+      <div class="item"><span class="sw" style="background:var(--harrisx)"></span><span data-i18n="legend_harrisx"></span></div>
+      <div class="item"><span class="sw" style="background:var(--edo)"></span><span data-i18n="legend_edo"></span></div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="val" style="color:var(--harrisx)">93.2</div><div class="lbl" data-i18n="kpi1"></div></div>
+      <div class="kpi"><div class="val" style="color:var(--edo)">9.1x</div><div class="lbl" data-i18n="kpi2"></div></div>
+      <div class="kpi"><div class="val">9,707</div><div class="lbl" data-i18n="kpi3"></div></div>
+      <div class="kpi"><div class="val">70</div><div class="lbl" data-i18n="kpi4"></div></div>
+    </div>
+
+    <div class="ranking-wrap" id="ranking">
+      <h3 data-i18n="hero_chart_h3"></h3>
+      <div class="sub" data-i18n="hero_chart_sub" style="margin-top:2px; margin-bottom:14px;"></div>
+      <canvas id="chart-ranking" height="230"></canvas>
+    </div>
+  </div>
+</header>
+
+<section id="dual" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="dual_eyebrow"></div>
+      <h2 data-i18n="dual_h2"></h2>
+      <p data-i18n="dual_sub"></p>
+    </div>
+    <div class="dual-card">
+      <canvas id="chart-dual"></canvas>
+      <div class="dual-row" id="dual-cards"></div>
+    </div>
+  </div>
+</section>
+
+<section id="ia">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="ia_eyebrow"></div>
+      <h2 data-i18n="ia_h2"></h2>
+      <p data-i18n="ia_sub"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 data-i18n="ia_chart_h3"></h3>
+        <div class="sub" data-i18n="ia_chart_sub"></div>
+        <canvas id="chart-ia"></canvas>
+      </div>
+      <div class="callout">
+        <div class="eyebrow" style="margin-bottom:0;" data-i18n="ia_callout_eyebrow"></div>
+        <div class="big"><span class="hx" id="ia-diff">—</span></div>
+        <p style="color:var(--text2); font-size:14px;" data-i18n="ia_callout_text"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="cat_eyebrow"></div>
+      <h2 data-i18n="cat_h2"></h2>
+      <p data-i18n="cat_sub"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 data-i18n="chart_cat_h3"></h3>
+        <canvas id="chart-categoria"></canvas>
+      </div>
+      <div class="card">
+        <h3 data-i18n="chart_attr_h3"></h3>
+        <div class="sub" data-i18n="chart_attr_sub"></div>
+        <canvas id="chart-atributos"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nlp">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="nlp_eyebrow"></div>
+      <h2 data-i18n="nlp_h2"></h2>
+      <p data-i18n="nlp_sub"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 data-i18n="chart_wordshi_h3"></h3>
+        <div class="sub" style="color:var(--harrisx)" data-i18n="chart_wordshi_sub"></div>
+        <canvas id="chart-words-hi"></canvas>
+      </div>
+      <div class="card">
+        <h3 data-i18n="chart_wordslo_h3"></h3>
+        <div class="sub" style="color:var(--edo)" data-i18n="chart_wordslo_sub"></div>
+        <canvas id="chart-words-lo"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="genz_eyebrow"></div>
+      <h2 data-i18n="genz_h2"></h2>
+      <p data-i18n="genz_sub"></p>
+    </div>
+    <div class="card">
+      <canvas id="chart-genz" height="110"></canvas>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="stack_eyebrow"></div>
+      <h2 data-i18n="stack_h2"></h2>
+    </div>
+    <div class="stack-badges">
+      <div class="badge">Python · pandas</div>
+      <div class="badge">SQL · SQLite</div>
+      <div class="badge">scikit-learn · <span data-i18n="badge_nlp"></span></div>
+      <div class="badge">SciPy · <span data-i18n="badge_corr"></span></div>
+      <div class="badge">Chart.js</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p data-i18n="footer_text"></p>
+  </div>
+</footer>
+
+<script id="data-eda" type="application/json">__EDA_JSON__</script>
+<script id="data-nlp" type="application/json">__NLP_JSON__</script>
+
+<script>
+const LANG = "__LANG__";
+const I18N = {
+es: {
+  brand:"Anuncios: Percepción vs. Acción",
+  nav_ranking:"Ranking", nav_dual:"Percepción vs. Acción", nav_ia:"IA", nav_nlp:"NLP",
+  eyebrow:"PORTAFOLIO DE DATA SCIENCE · MARKETING ANALYTICS",
+  hero_title:'¿Qué anuncio <span class="hx">gustó</span> más — y cuál <span class="ed">funcionó</span> mejor?',
+  hero_sub:"Los comerciales del Super Bowl LX bajo dos lupas distintas: HarrisX midió qué tanto le gustó a la gente (encuesta a 9,707 personas). EDO midió qué tanto la gente realmente actuó después (búsquedas, visitas, descargas). No siempre coinciden.",
+  hero_snapshot:"Snapshot: Super Bowl LX, 8 feb 2026 · datos reales de HarrisX Ad Index y EDO TV Outcomes",
+  legend_harrisx:"HarrisX — percepción (encuesta, 0–100)", legend_edo:"EDO — acción real (engagement, 100=mediana)",
+  kpi1:"Score más alto (HarrisX)", kpi2:"Mejor engagement real (EDO)", kpi3:"Personas encuestadas", kpi4:"Anuncios evaluados",
+  hero_chart_h3:"Ranking completo por score HarrisX", hero_chart_sub:"Los 15 anuncios con score verificado, de mayor a menor",
+  dual_eyebrow:"EL HALLAZGO CENTRAL", dual_h2:"El ganador de percepción no fue el ganador de acción",
+  dual_sub:"Para los anuncios donde tengo ambos datos: HarrisX (qué tanto gustó) vs. EDO (qué tanto generó búsquedas y visitas reales).",
+  ia_eyebrow:"COMPARACIÓN DE CASOS · IA", ia_h2:"Cómo enmarcar la IA sí importa",
+  ia_sub:"Los anuncios de IA que mostraron un caso de uso humano concreto puntuaron muy por encima de los que solo mostraron capacidad técnica.",
+  ia_chart_h3:"Score HarrisX por marco de comunicación", ia_chart_sub:"Caso de uso concreto vs. demostración de capacidad",
+  ia_callout_eyebrow:"DIFERENCIA DE PUNTAJE", ia_callout_text:"Muestra pequeña (n=2 vs. n=1) — se reporta como comparación de casos, no como test estadístico formal.",
+  cat_eyebrow:"POR CATEGORÍA Y ATRIBUTO", cat_h2:"¿Qué hace que un anuncio funcione?",
+  cat_sub:"Desglose por industria y por los elementos creativos más comunes (celebridad, propósito social, humor).",
+  chart_cat_h3:"Score promedio por categoría", chart_attr_h3:"Impacto de cada atributo creativo",
+  chart_attr_sub:"Acumular más atributos no garantiza mejor score (r=-0.18)",
+  nlp_eyebrow:"NLP · FRECUENCIA DE PALABRAS", nlp_h2:"De qué hablan los anuncios que funcionan (y los que no)",
+  nlp_sub:"Análisis de texto sobre las descripciones de cada anuncio, separado entre alto y bajo desempeño.",
+  chart_wordshi_h3:"Palabras más frecuentes", chart_wordshi_sub:"Anuncios de alto desempeño (score ≥ 83)",
+  chart_wordslo_h3:"Palabras más frecuentes", chart_wordslo_sub:"Anuncios de menor desempeño (score < 83)",
+  genz_eyebrow:"LA DIVERGENCIA GENERACIONAL", genz_h2:"Gen Z vio un Super Bowl distinto",
+  genz_sub:"Lay's ganó en general. Pringles ganó entre Gen Z — por un margen aún mayor — pero quedó 22vo en el ranking general.",
+  stack_eyebrow:"STACK TÉCNICO", stack_h2:"Cómo se construyó",
+  badge_nlp:"CountVectorizer (NLP)", badge_corr:"correlación de Pearson",
+  ia_label_usecase1:"Caso de uso", ia_label_usecase2:"(Ring, Google)",
+  ia_label_capability1:"Capacidad técnica", ia_label_capability2:"(Anthropic)",
+  legend_con_attr:"Con atributo", legend_sin_attr:"Sin atributo",
+  legend_hx_short:"HarrisX (0-100)", legend_ed_short:"EDO (base 100)",
+  footer_text:"Percepción vs. Acción: Anuncios del Super Bowl LX · Datos reales de HarrisX Ad Index (encuesta a 9,707 personas) y EDO TV Outcomes (engagement real) · Snapshot del 8 de febrero de 2026 · github.com/DxrioM",
+  axis_score:"Score HarrisX (0-100)", chart_error:"No se pudo cargar este gráfico.",
+  locale:"es",
+},
+en: {
+  brand:"Ads: Perception vs. Action",
+  nav_ranking:"Ranking", nav_dual:"Perception vs. Action", nav_ia:"AI", nav_nlp:"NLP",
+  eyebrow:"DATA SCIENCE PORTFOLIO · MARKETING ANALYTICS",
+  hero_title:'Which ad did people <span class="hx">like</span> most — and which one <span class="ed">worked</span> best?',
+  hero_sub:"Super Bowl LX commercials under two different lenses: HarrisX measured how much people liked them (a survey of 9,707 people). EDO measured how much people actually acted afterward (searches, visits, downloads). They don't always agree.",
+  hero_snapshot:"Snapshot: Super Bowl LX, Feb 8 2026 · real data from HarrisX Ad Index and EDO TV Outcomes",
+  legend_harrisx:"HarrisX — perception (survey, 0–100)", legend_edo:"EDO — real action (engagement, 100=median)",
+  kpi1:"Highest score (HarrisX)", kpi2:"Best real engagement (EDO)", kpi3:"People surveyed", kpi4:"Ads evaluated",
+  hero_chart_h3:"Full ranking by HarrisX score", hero_chart_sub:"All 15 ads with a verified score, highest to lowest",
+  dual_eyebrow:"THE CORE FINDING", dual_h2:"The perception winner wasn't the action winner",
+  dual_sub:"For the ads where I have both metrics: HarrisX (how much people liked it) vs. EDO (how much it drove real searches and visits).",
+  ia_eyebrow:"CASE COMPARISON · AI", ia_h2:"How you frame AI genuinely matters",
+  ia_sub:"AI ads that showed a concrete human use case scored far above ones that only demonstrated technical capability.",
+  ia_chart_h3:"HarrisX score by communication framing", ia_chart_sub:"Concrete use case vs. capability demonstration",
+  ia_callout_eyebrow:"SCORE DIFFERENCE", ia_callout_text:"Small sample (n=2 vs. n=1) — reported as a case comparison, not a formal statistical test.",
+  cat_eyebrow:"BY CATEGORY AND ATTRIBUTE", cat_h2:"What actually makes an ad work?",
+  cat_sub:"Breakdown by industry and by the most common creative elements (celebrity, social purpose, humor).",
+  chart_cat_h3:"Average score by category", chart_attr_h3:"Impact of each creative attribute",
+  chart_attr_sub:"Stacking more attributes doesn't guarantee a better score (r=-0.18)",
+  nlp_eyebrow:"NLP · WORD FREQUENCY", nlp_h2:"What high performers talk about (and what low performers do)",
+  nlp_sub:"Text analysis on each ad's description, split between high and low performers.",
+  chart_wordshi_h3:"Most frequent words", chart_wordshi_sub:"High-performing ads (score ≥ 83)",
+  chart_wordslo_h3:"Most frequent words", chart_wordslo_sub:"Lower-performing ads (score < 83)",
+  genz_eyebrow:"THE GENERATIONAL DIVIDE", genz_h2:"Gen Z watched a different Super Bowl",
+  genz_sub:"Lay's won overall. Pringles won with Gen Z — by an even bigger margin — but ranked only 22nd overall.",
+  stack_eyebrow:"TECH STACK", stack_h2:"How it was built",
+  badge_nlp:"CountVectorizer (NLP)", badge_corr:"Pearson correlation",
+  ia_label_usecase1:"Use case", ia_label_usecase2:"(Ring, Google)",
+  ia_label_capability1:"Technical capability", ia_label_capability2:"(Anthropic)",
+  legend_con_attr:"With attribute", legend_sin_attr:"Without attribute",
+  legend_hx_short:"HarrisX (0-100)", legend_ed_short:"EDO (base 100)",
+  footer_text:"Perception vs. Action: Super Bowl LX Ads · Real data from HarrisX Ad Index (survey of 9,707 people) and EDO TV Outcomes (real engagement) · Snapshot from February 8, 2026 · github.com/DxrioM",
+  axis_score:"HarrisX Score (0-100)", chart_error:"This chart could not be loaded.",
+  locale:"en",
+}
+};
+const T = I18N[LANG] || I18N.es;
+
+function applyI18n(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(T[key] !== undefined) el.textContent = T[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-html');
+    if(T[key] !== undefined) el.innerHTML = T[key];
+  });
+}
+applyI18n();
+
+let EDA={}, NLP={};
+try{
+  EDA = JSON.parse(document.getElementById('data-eda').textContent);
+  NLP = JSON.parse(document.getElementById('data-nlp').textContent);
+}catch(e){ console.error('Error parsing embedded data', e); }
+
+const HX = '#FF7A59', ED = '#3FC9E0', GOLD = '#E8B84F', GREEN='#4CAF6D', RED='#E0524A';
+const TXT2 = '#98A0AC';
+const GRID = 'rgba(255,255,255,0.06)';
+
+if(typeof Chart !== 'undefined'){
+  Chart.defaults.color = TXT2;
+  Chart.defaults.font.family = "'Manrope', sans-serif";
+  Chart.defaults.font.size = 12;
+}
+
+function safeChart(canvasId, config){
+  try{
+    if(typeof Chart === 'undefined') throw new Error('Chart.js unavailable');
+    const el = document.getElementById(canvasId);
+    if(!el) return null;
+    return new Chart(el, config);
+  }catch(err){
+    console.error('Chart error ['+canvasId+']', err);
+    const el = document.getElementById(canvasId);
+    if(el && el.parentNode){
+      const msg = document.createElement('div');
+      msg.className = 'chart-error';
+      msg.textContent = T.chart_error;
+      el.parentNode.replaceChild(msg, el);
+    }
+    return null;
+  }
+}
+
+// ---------- HERO: RANKING COMPLETO ----------
+safeChart('chart-ranking', {
+  type:'bar',
+  data:{
+    labels:(EDA.ranking_completo||[]).map(d=>`${d.marca} — ${d.nombre_anuncio}`),
+    datasets:[{
+      data:(EDA.ranking_completo||[]).map(d=>d.harrisx_score),
+      backgroundColor:(EDA.ranking_completo||[]).map(d=>d.harrisx_score>=83?HX:'rgba(255,122,89,0.35)'),
+      borderRadius:5,
+    }]
+  },
+  options:{
+    responsive:true, indexAxis:'y',
+    plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>c.raw+'/100'}}},
+    scales:{x:{grid:{color:GRID}, min:0, max:100, title:{display:true,text:T.axis_score,color:TXT2}}, y:{grid:{display:false}, ticks:{font:{size:10.5}}}}
+  }
+});
+
+// ---------- DUAL: HarrisX vs EDO scatter + cards ----------
+(function(){
+  const data = EDA.harrisx_vs_edo || [];
+  safeChart('chart-dual', {
+    type:'bar',
+    data:{
+      labels: data.map(d=>`${d.marca}`),
+      datasets:[
+        {label:T.legend_hx_short, data: data.map(d=>d.harrisx_score), backgroundColor:HX, borderRadius:5},
+        {label:T.legend_ed_short, data: data.map(d=>d.edo_index), backgroundColor:ED, borderRadius:5},
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{display:true, position:'bottom', labels:{boxWidth:10, padding:14}}},
+      scales:{x:{grid:{display:false}}, y:{grid:{color:GRID}}}
+    }
+  });
+  const wrap = document.getElementById('dual-cards');
+  data.forEach(d=>{
+    const div = document.createElement('div');
+    div.className = 'dual-item';
+    const hxPct = (d.harrisx_score/93.2*100).toFixed(0);
+    const edPct = Math.min(100, d.edo_index/10*100/10*10);
+    div.innerHTML = `
+      <div class="brand">${d.marca} — ${d.nombre_anuncio}</div>
+      <div class="metric-row"><span class="lbl">HarrisX</span><span class="v" style="color:${HX}">#${d.harrisx_rank} (${d.harrisx_score})</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${hxPct}%; background:${HX}"></div></div>
+      <div class="metric-row"><span class="lbl">EDO</span><span class="v" style="color:${ED}">${d.edo_index.toFixed(0)}</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,d.edo_index/9.1)}%; background:${ED}"></div></div>
+    `;
+    wrap.appendChild(div);
+  });
+})();
+
+// ---------- IA: caso de uso vs capacidad ----------
+try{
+  const ia = NLP.ia_comparacion;
+  safeChart('chart-ia', {
+    type:'bar',
+    data:{
+      labels:[[T.ia_label_usecase1, T.ia_label_usecase2], [T.ia_label_capability1, T.ia_label_capability2]],
+      datasets:[{data:[ia.caso_de_uso_mean, ia.capacidad_mean], backgroundColor:[GREEN, RED], borderRadius:6, barThickness:70}]
+    },
+    options:{responsive:true, plugins:{legend:{display:false}}, scales:{y:{grid:{color:GRID}, max:100}, x:{grid:{display:false}}}}
+  });
+  document.getElementById('ia-diff').textContent = '+' + ia.diferencia.toFixed(1) + ' pts';
+}catch(e){ console.error(e); }
+
+// ---------- CATEGORIA ----------
+safeChart('chart-categoria', {
+  type:'bar',
+  data:{
+    labels:(EDA.score_por_categoria||[]).map(d=>d.categoria),
+    datasets:[{data:(EDA.score_por_categoria||[]).map(d=>d.score_promedio), backgroundColor:GOLD, borderRadius:5}]
+  },
+  options:{responsive:true, indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{grid:{color:GRID}, min:0,max:100}, y:{grid:{display:false}}}}
+});
+
+// ---------- ATRIBUTOS ----------
+(function(){
+  const rows = EDA.atributos_vs_score || [];
+  const pairs = [];
+  for(let i=0;i<rows.length;i+=2){ pairs.push([rows[i], rows[i+1]]); }
+  const labels = pairs.map(p=>p[0].atributo.replace('Con ',''));
+  const conVals = pairs.map(p=>p[0].score_promedio);
+  const sinVals = pairs.map(p=>p[1].score_promedio);
+  safeChart('chart-atributos', {
+    type:'bar',
+    data:{labels, datasets:[
+      {label:'Con atributo', data:conVals, backgroundColor:HX, borderRadius:4},
+      {label:'Sin atributo', data:sinVals, backgroundColor:'rgba(255,255,255,0.18)', borderRadius:4},
+    ]},
+    options:{responsive:true, plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:12}}}, scales:{y:{grid:{color:GRID},min:0,max:100}, x:{grid:{display:false}}}}
+  });
+})();
+
+// ---------- NLP: PALABRAS ----------
+safeChart('chart-words-hi', {
+  type:'bar',
+  data:{labels:(NLP.nlp_top_words_alto_desempeno||[]).map(d=>d.palabra), datasets:[{data:(NLP.nlp_top_words_alto_desempeno||[]).map(d=>d.frecuencia), backgroundColor:HX, borderRadius:4}]},
+  options:{responsive:true, indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{grid:{color:GRID}, ticks:{stepSize:1}}, y:{grid:{display:false}}}}
+});
+safeChart('chart-words-lo', {
+  type:'bar',
+  data:{labels:(NLP.nlp_top_words_bajo_desempeno||[]).map(d=>d.palabra), datasets:[{data:(NLP.nlp_top_words_bajo_desempeno||[]).map(d=>d.frecuencia), backgroundColor:ED, borderRadius:4}]},
+  options:{responsive:true, indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{grid:{color:GRID}, ticks:{stepSize:1}}, y:{grid:{display:false}}}}
+});
+
+// ---------- GEN Z ----------
+safeChart('chart-genz', {
+  type:'bar',
+  data:{
+    labels:["Lay's — General", "Lay's — Gen Z", "Pringles — General", "Pringles — Gen Z"],
+    datasets:[{data:[93.2, 91.0, 78.5, 94.8], backgroundColor:[HX,'rgba(255,122,89,0.4)',ED,'rgba(63,201,224,0.4)'], borderRadius:6}]
+  },
+  options:{responsive:true, plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>c.raw+'/100'}}}, scales:{y:{grid:{color:GRID},max:100}, x:{grid:{display:false}}}}
+});
+</script>
+</body>
+</html>

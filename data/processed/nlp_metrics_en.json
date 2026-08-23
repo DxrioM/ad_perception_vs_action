@@ -1,0 +1,147 @@
+{
+  "nlp_top_words_alto_desempeno": [
+    {
+      "palabra": "bear",
+      "frecuencia": 2
+    },
+    {
+      "palabra": "shown",
+      "frecuencia": 2
+    },
+    {
+      "palabra": "through",
+      "frecuencia": 2
+    },
+    {
+      "palabra": "abstract",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "addresses",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "admeter",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "anchoring",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "anniversary",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "antisemitism",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "around",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "bald",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "bird",
+      "frecuencia": 1
+    }
+  ],
+  "nlp_top_words_bajo_desempeno": [
+    {
+      "palabra": "approval",
+      "frecuencia": 2
+    },
+    {
+      "palabra": "estimated",
+      "frecuencia": 2
+    },
+    {
+      "palabra": "point",
+      "frecuencia": 2
+    },
+    {
+      "palabra": "accounts",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "advertised",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "aimed",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "argument",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "audience",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "biggest",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "builds",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "capability",
+      "frecuencia": 1
+    },
+    {
+      "palabra": "carpenter",
+      "frecuencia": 1
+    }
+  ],
+  "ia_comparacion": {
+    "caso_de_uso_scores": [
+      91.8,
+      86.8
+    ],
+    "caso_de_uso_mean": 89.3,
+    "capacidad_scores": [
+      65.0
+    ],
+    "capacidad_mean": 65.0,
+    "diferencia": 24.3,
+    "n_caso_uso": 2,
+    "n_capacidad": 1
+  },
+  "correlacion_atributos": {
+    "r": -0.179,
+    "p": 0.523
+  },
+  "harrisx_vs_edo": [
+    {
+      "marca": "Lay's",
+      "anuncio": "Last Harvest",
+      "harrisx_score": 93.2,
+      "harrisx_rank": 1,
+      "edo_index": 120.0
+    },
+    {
+      "marca": "Xfinity",
+      "anuncio": "Jurassic Park...Works",
+      "harrisx_score": 82.5,
+      "harrisx_rank": 9,
+      "edo_index": 130.0
+    },
+    {
+      "marca": "Pringles",
+      "anuncio": "Pringleleo",
+      "harrisx_score": 78.5,
+      "harrisx_rank": 22,
+      "edo_index": 180.0
+    }
+  ],
+  "top10_avg": 88.9,
+  "bottom_avg_approx": 62.0,
+  "n_ads_total_evento": 70,
+  "muestra_encuesta": 9707
+}
